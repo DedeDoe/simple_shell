@@ -14,7 +14,7 @@ char *address(char *path, char *arg)
 	char *path_token;
 	char delimeter = ':';
 	char *_filepath;
-	char *_buffer;
+	/* char *buffer; */
 
 	copy_path = custom_strdup(path);
 	path_token = strtok(copy_path, &delimeter);

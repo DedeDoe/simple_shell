@@ -8,13 +8,16 @@
  */
 char *custom_strdup(char *original)
 {
+	size_t length; 
+	char *new_dup;
+
 	if (original == NULL)
 	{
 	return (NULL);
 	}
 
-	size_t length = custom_strlen(original) + 1;
-	char *new_dup = (char *)malloc(length);
+	length = custom_strlen(original) + 1;
+	new_dup = (char *)malloc(length);
 
 	if (new_dup != NULL)
 	{

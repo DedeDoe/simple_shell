@@ -10,6 +10,7 @@
 
 void execute_env(void)
 {
+	int i;
 	char *equal_sign = "=";
 	char *new_line = "\n";
 
@@ -19,7 +20,7 @@ void execute_env(void)
 		"DESKTOP_SESSION", "LOGNAME", "TERM", "PATH", "DISPLAY", NULL};
 
 	/*Iterate through the specified environment variables and print their values*/
-	for (int i = 0; env_vars[i] != NULL; i++)
+	for (i = 0; env_vars[i] != NULL; i++)
 	{
 		char *env_value = getenv(env_vars[i]);
 

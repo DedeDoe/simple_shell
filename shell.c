@@ -11,7 +11,10 @@ int main(int argc, char **argv, char **env)
 	ssize_t getline_value;
 	char *childp_fail = "child process failed to start";
 	pid_t child_pid;
-	int status, execve_return;
+	int status, execve_return, i, index;
+
+	(void)argc;
+	(void)argv;
 
 	while (1)
 	{
@@ -26,7 +29,7 @@ int main(int argc, char **argv, char **env)
 			exit(0);
 		}
 
-	int i = 0;
+	i = 0;
 
 	while (user_input[i])
 	{
@@ -36,7 +39,7 @@ int main(int argc, char **argv, char **env)
 	}
 
 	/* Tokenize user input */
-	int index = 0;
+	index = 0;
 
 	av[index] = strtok(user_input, &delimeter);
 	while (av[index])
@@ -73,8 +76,10 @@ int main(int argc, char **argv, char **env)
                 {
                         execve_return = (execve(path, av, env));
                         if (execve_return == -1)
-                                custom_print(missing_command);
+			{       
+				custom_print(missing_command);
                                 write(STDOUT_FILENO, new_line, 1);
+			}
 
                 }
 	else

@@ -7,9 +7,9 @@
  *        constant function prototype.
  *  Return: Always 0
  */
-int _myhistory(info_t *info)
+int _myhistory(info_in *data)
 {
-	print_list(info->history);
+	print_list(data->history);
 	return (0);
 }
 
@@ -20,7 +20,7 @@ int _myhistory(info_t *info)
  *
  * Return: Always 0 on success, 1 on error
  */
-int unset_alias(info_t *info, char *str)
+int unset_alias(info_in *data, char *str)
 {
 	char *p, c;
 	int ret;
@@ -43,7 +43,7 @@ int unset_alias(info_t *info, char *str)
  *
  * Return: Always 0 on success, 1 on error
  */
-int set_alias(info_t *info, char *str)
+int set_alias(info_in *data, char *str)
 {
 	char *p;
 
@@ -51,10 +51,10 @@ int set_alias(info_t *info, char *str)
 	if (!p)
 		return (1);
 	if (!*++p)
-		return (unset_alias(info, str));
+		return (unset_alias(data, str));
 
-	unset_alias(info, str);
-	return (add_node_end(&(info->alias), str, 0) == NULL);
+	unset_alias(data, str);
+	return (add_node_end(&(data->alias), str, 0) == NULL);
 }
 
 /**
@@ -92,9 +92,9 @@ int _myalias(info_t *info)
 	char *p = NULL;
 	list_t *node = NULL;
 
-	if (info->argc == 1)
+	if (info->agc == 1)
 	{
-		node = info->alias;
+		node = data->alias;
 		while (node)
 		{
 			print_alias(node);
@@ -102,13 +102,13 @@ int _myalias(info_t *info)
 		}
 		return (0);
 	}
-	for (i = 1; info->argv[i]; i++)
+	for (i = 1; data->agv[i]; i++)
 	{
-		p = _strchr(info->argv[i], '=');
+		p = _strchr(data->agv[i], '=');
 		if (p)
-			set_alias(info, info->argv[i]);
+			set_alias(data, data->agv[i]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[i], '='));
+			print_alias(node_starts_with(info->alias, data->agv[i], '='));
 	}
 
 	return (0);

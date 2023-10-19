@@ -112,13 +112,13 @@ typedef struct builtin
 
 
 /* toem_shloop.c */
-int hsh(info_t *, char **);
+int hsh(info_in *, char **);
 int find_builtin(info_in *);
 void find_cmd(info_in *);
 void fork_cmd(info_in *);
 
 /* toem_parser.c */
-int is_cmd(info_t *, char *);
+int is_cmd(info_in *, char *);
 char *dup_chars(char *, int, int);
 char *find_path(info_in *, char *, char *);
 
@@ -201,8 +201,8 @@ int populate_env_list(info_in *);
 
 /* toem_getenv.c */
 char **get_environ(info_in *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+int _unsetenv(info_in *, char *);
+int _setenv(info_in *, char *, char *);
 
 /* toem_history.c */
 char *get_history_file(info_in *info);
@@ -226,7 +226,7 @@ list_t *node_starts_with(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
 
 /* toem_vars.c */
-int is_chain(info_t *, char *, size_t *);
+int is_chain(info_in *, char *, size_t *);
 void check_chain(info_in *, char *, size_t *, size_t, size_t);
 int replace_alias(info_in *);
 int replace_vars(info_in *);

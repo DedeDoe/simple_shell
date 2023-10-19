@@ -10,7 +10,7 @@
 int main(int agc, char **agv)
 {
 	int eg = 2;
-	info_t info[] = { INFO_INIT };
+	info_in data[] = { INFO_INIT };
 
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
@@ -35,10 +35,10 @@ int main(int agc, char **agv)
 			}
 			return (1);
 		}
-		info->readeg = eg;
+		data.readeg = eg;
 	}
-	populate_env_list(info);
-	read_history(info);
-	hsh(info, agv);
+	populate_env_list(data);
+	read_history(data);
+	hsh(data, agv);
 	return (0);
 }

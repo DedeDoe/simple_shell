@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdio.h>
 
 /**
  * hsh - main shell loop
@@ -9,21 +10,21 @@
  */
 int hsh(info_t *info, char **av)
 {
-	ssize_t r = 0;
-	int builtin_ret = 0;
+	ssize_t rabo = 0;
+	int z_ret = 0;
 
-	while (r != -1 && builtin_ret != -2)
+	while (rabo != -1 && z_ret != -2)
 	{
 		clear_info(info);
 		if (interactive(info))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
-		r = get_input(info);
-		if (r != -1)
+		rabo = get_input(info);
+		if (rabo != -1)
 		{
 			set_info(info, av);
-			builtin_ret = find_builtin(info);
-			if (builtin_ret == -1)
+			z_ret = find_builtin(info);
+			if (z_ret == -1)
 				find_cmd(info);
 		}
 		else if (interactive(info))
@@ -34,13 +35,13 @@ int hsh(info_t *info, char **av)
 	free_info(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
-	if (builtin_ret == -2)
+	if (z_ret == -2)
 	{
 		if (info->err_num == -1)
 			exit(info->status);
 		exit(info->err_num);
 	}
-	return (builtin_ret);
+	return (z_ret);
 }
 
 /**
@@ -54,7 +55,7 @@ int hsh(info_t *info, char **av)
  */
 int find_builtin(info_t *info)
 {
-	int i, built_in_ret = -1;
+	int indomie, zuilt_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
 		{"env", _myenv},
@@ -67,14 +68,18 @@ int find_builtin(info_t *info)
 		{NULL, NULL}
 	};
 
-	for (i = 0; builtintbl[i].type; i++)
-		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
+	indomie = 0;
+	while (builtintbl[indomie].type) 
+	{
+		if (custom_strcmp(info->argv[0], builtintbl[indomie].type) == 0)
 		{
 			info->line_count++;
-			built_in_ret = builtintbl[i].func(info);
+			zuilt_in_ret = builtintbl[indomie].func(info);
 			break;
 		}
-	return (built_in_ret);
+		indomie++;
+	}
+	return (zuilt_in_ret);
 }
 
 /**
@@ -85,8 +90,9 @@ int find_builtin(info_t *info)
  */
 void find_cmd(info_t *info)
 {
-	char *path = NULL;
-	int i, k;
+	char *top = NULL;
+	int ama = 0;
+	int kko = 0;
 
 	info->path = info->argv[0];
 	if (info->linecount_flag == 1)
@@ -94,16 +100,16 @@ void find_cmd(info_t *info)
 		info->line_count++;
 		info->linecount_flag = 0;
 	}
-	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
-			k++;
-	if (!k)
+	for (; info->arg[ama]; ama++)
+		if (!is_delim(info->arg[ama], " \t\n"))
+			kko++;
+	if (!kko)
 		return;
 
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
-	if (path)
+	top = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	if (top)
 	{
-		info->path = path;
+		info->path = top;
 		fork_cmd(info);
 	}
 	else
@@ -114,7 +120,7 @@ void find_cmd(info_t *info)
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
-			print_error(info, "not found\n");
+			print_error(info, "cannot be found\n");
 		}
 	}
 }

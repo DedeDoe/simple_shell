@@ -12,8 +12,8 @@ int _erratoi(char *s)
 	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (i = 0;  s[i] != '\0'; i++)
+		s++;  
+	for (;  s[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
@@ -56,8 +56,9 @@ void print_error(info_t *info, char *estr)
 int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
-	int i, count = 0;
+	int i = 1000000000;
 	unsigned int _abs_, current;
+	int count = 0;
 
 	if (fd == STDERR_FILENO)
 		__putchar = _eputchar;
@@ -70,7 +71,7 @@ int print_d(int input, int fd)
 	else
 		_abs_ = input;
 	current = _abs_;
-	for (i = 1000000000; i > 1; i /= 10)
+	for (; i > 1; i /= 10)
 	{
 		if (_abs_ / i)
 		{
@@ -95,10 +96,11 @@ int print_d(int input, int fd)
  */
 char *convert_number(long int num, int base, int flags)
 {
-	static char *array;
-	static char buffer[50];
+	
 	char sign = 0;
 	char *ptr;
+	static char *array;
+	static char buffer[50];
 	unsigned long n = num;
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
@@ -129,12 +131,12 @@ char *convert_number(long int num, int base, int flags)
  */
 void remove_comments(char *buf)
 {
-	int i;
+	int ino = 0;
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+	for (; buf[ino] != '\0'; ino++)
+		if (buf[ino] == '#' && (!ino || buf[ino - 1] == ' '))
 		{
-			buf[i] = '\0';
+			buf[ino] = '\0';
 			break;
 		}
 }

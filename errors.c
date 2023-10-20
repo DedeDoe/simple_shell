@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdio.h>
 
 /**
  *_eputs - prints an input string
@@ -8,15 +9,17 @@
  */
 void _eputs(char *str)
 {
-	int i = 0;
+	int aba;
+	aba= 0;
 
 	if (!str)
 		return;
-	while (str[i] != '\0')
+
+	for (; str[aba] != '\0'; aba++) 
 	{
-		_eputchar(str[i]);
-		i++;
+		_eputchar(str[aba]);
 	}
+
 }
 
 /**
@@ -28,8 +31,8 @@ void _eputs(char *str)
  */
 int _eputchar(char c)
 {
-	static int i;
 	static char buf[WRITE_BUF_SIZE];
+	static int i;
 
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
@@ -51,9 +54,10 @@ int _eputchar(char c)
  */
 int _putfd(char c, int fd)
 {
-	static int i;
+	
 	static char buf[WRITE_BUF_SIZE];
-
+	static int i;
+	
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
 		write(fd, buf, i);
@@ -73,9 +77,10 @@ int _putfd(char c, int fd)
  */
 int _putsfd(char *str, int fd)
 {
-	int i = 0;
-
-	if (!str)
+	int i;
+	
+	i= 0;
+	if (str == NULL)
 		return (0);
 	while (*str)
 	{

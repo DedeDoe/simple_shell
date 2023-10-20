@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdio.h>
 
 /**
  * _myexit - Exit the shell or set the exit status.
@@ -12,12 +13,12 @@
  */
 int _myexit(info_t *info)
 {
-	int exitcheck;
+	int outcheck;
 
 	if (info->argv[1])  /* If there is an exit argument */
 	{
-		exitcheck = _erratoi(info->argv[1]);
-		if (exitcheck == -1)
+		outcheck = _erratoi(info->argv[1]);
+		if (outcheck == -1)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
@@ -40,18 +41,19 @@ int _myexit(info_t *info)
  */
 int _mycd(info_t *info)
 {
-	char *s, *dir, buffer[1024];
 	int chdir_ret;
+	char *s, *dir; 
+	char buffer[1024];
+
 
 	s = getcwd(buffer, 1024);
 	if (!s)
-		_puts("TODO: >>getcwd failure emsg here<<\n");
+		_puts("getcwd failed\n");
 	if (!info->argv[1])
 	{
 		dir = _getenv(info, "HOME=");
 		if (!dir)
-			chdir_ret = /* TODO: what should this be? */
-				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
+			chdir_ret = chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
 		else
 			chdir_ret = chdir(dir);
 	}
@@ -64,8 +66,7 @@ int _mycd(info_t *info)
 			return (1);
 		}
 		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
-		chdir_ret = /* TODO: what should this be? */
-			chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
+		chdir_ret = chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
 		chdir_ret = chdir(info->argv[1]);
@@ -90,9 +91,8 @@ int _mycd(info_t *info)
  */
 int _myhelp(info_t *info)
 {
-	char **arg_array;
+	char **arg_array = info->argv;
 
-	arg_array = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
 		_puts(*arg_array); /* temp att_unused workaround */

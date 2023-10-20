@@ -9,26 +9,11 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	size_t u = 0;
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
+	for (; u < n; u++)
+		s[u] = b;
 	return (s);
-}
-
-/**
- * ffree - frees a string of strings
- * @pp: string of strings
- */
-void ffree(char **pp)
-{
-	char **a = pp;
-
-	if (!pp)
-		return;
-	while (*pp)
-		free(*pp++);
-	free(a);
 }
 
 /**
@@ -41,7 +26,7 @@ void ffree(char **pp)
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *p;
+	char *bobo;
 
 	if (!ptr)
 		return (malloc(new_size));
@@ -50,13 +35,13 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (new_size == old_size)
 		return (ptr);
 
-	p = malloc(new_size);
-	if (!p)
+	bobo = malloc(new_size);
+	if (!bobo)
 		return (NULL);
 
 	old_size = old_size < new_size ? old_size : new_size;
 	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
+		bobo[old_size] = ((char *)ptr)[old_size];
 	free(ptr);
-	return (p);
+	return (bobo);
 }

@@ -7,7 +7,7 @@
  */
 char *custom_strdup(char *original)
 {
-	size_t length; 
+	size_t length;
 	char *new_dup;
 
 	if (original == NULL)

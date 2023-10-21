@@ -2,12 +2,11 @@
 #include <stdio.h>
 
 /**
- * add_node_end - adds a node to the end of the list
- * @head: address of pointer to head node
- * @str: str field of node
- * @num: node index used by history
- *
- * Return: size of list
+ * add_node_end - adds node
+ * @head: list_t pointer to a pointer head
+ * @str: character pointer str
+ * @num: int num
+ * Return: size
  */
 list_t *add_node_end(list_t **head, char *str, int num)
 {
@@ -44,11 +43,10 @@ list_t *add_node_end(list_t **head, char *str, int num)
 
 
 /**
- * delete_node_at_index - deletes node at given index
- * @head: address of pointer to first node
- * @index: index of node to delete
- *
- * Return: 1 on success, 0 on failure
+ * delete_node_at_index - deletes nodex
+ * @head: list_t pointer to a pointer head
+ * @index: unsigned int index
+ * Return: 1
  */
 int delete_node_at_index(list_t **head, unsigned int index)
 {

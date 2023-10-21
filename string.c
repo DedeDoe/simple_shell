@@ -3,11 +3,10 @@
 
 
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
- *
- * Return: address of next char of haystack or NULL
+ * starts_with - entry
+ * @haystack: const char haystack
+ * @needle: const char needle
+ * Return: address of haystack
  */
 char *starts_with(const char *haystack, const char *needle)
 {
@@ -19,15 +18,14 @@ char *starts_with(const char *haystack, const char *needle)
 
 /**
  * _strcat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
- *
- * Return: pointer to destination buffer
+ * @dest:char dest
+ * @src: character src
+ * Return: ret
  */
 char *_strcat(char *dest, char *src)
 {
 	char *ret;
-       
+
 	ret = dest;
 
 	while (*dest)

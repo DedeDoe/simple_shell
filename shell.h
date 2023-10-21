@@ -31,7 +31,7 @@
 #define USE_GETLINE 0
 #define USE_STRTOK 0
 
-#define HISTORY_FILE	".simple_shell_history"
+#define H_F	".simple_shell_history"
 #define HIST_MAX	4096
 
 extern char **environ;

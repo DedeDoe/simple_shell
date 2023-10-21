@@ -2,20 +2,15 @@
 #include <stdio.h>
 
 /**
- * _myexit - Exit the shell or set the exit status.
- * @info: Pointer to the info_t struct holding argument information.
- *
- * This function handles the "exit" command. If an argument is provided,
- * it attempts to convert it to an integer and sets it as the exit status.
- *
- * Return: Returns -2 to indicate an exit status change if successful,
- *         or 1 in case of an illegal number argument, or -2 if no argument.
+ * _myexit - Function to exit shell
+ * @info: info_t info
+ * Return: 1
  */
 int _myexit(info_t *info)
 {
 	int outcheck;
 
-	if (info->argv[1])  /* If there is an exit argument */
+	if (info->argv[1])
 	{
 		outcheck = _erratoi(info->argv[1]);
 		if (outcheck == -1)
@@ -34,15 +29,14 @@ int _myexit(info_t *info)
 }
 
 /**
- * _mycd - Change the current directory of the process.
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0.
+ * _mycd- Function to change directory
+ * @info: info_t info
+ *  Return: 0
  */
 int _mycd(info_t *info)
 {
 	int chdir_ret;
-	char *s, *dir; 
+	char *s, *dir;
 	char buffer[1024];
 
 
@@ -84,10 +78,9 @@ int _mycd(info_t *info)
 }
 
 /**
- * _myhelp - Display help information.
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0.
+ * _myhelp- Function displays help info
+ * @info: info_t info
+ * Return: 0
  */
 int _myhelp(info_t *info)
 {

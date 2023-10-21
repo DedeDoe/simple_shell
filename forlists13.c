@@ -1,15 +1,14 @@
 #include "shell.h"
 
 /**
- * print_list - prints all elements of a list_t linked list
- * @h: pointer to first node
- *
- * Return: size of list
+ * print_list - function prints every elements of a linked list
+ * @h: constant list_t pointer h
+ * Return: size
  */
 size_t print_list(const list_t *h)
 {
 	unsigned int wapi;
-       
+
 	wapi = 0;
 	while (h)
 	{

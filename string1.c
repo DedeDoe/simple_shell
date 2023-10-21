@@ -3,10 +3,9 @@
 
 /**
  * _strcpy - copies a string
- * @dest: the destination
- * @src: the source
- *
- * Return: pointer to destination
+ * @dest: charater dest
+ * @src: character source
+ * Return:  dest
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -25,11 +24,11 @@ char *_strcpy(char *dest, char *src)
 
 
 /**
- *_puts - prints an input string
- *@str: the string to be printed
- *
- * Return: Nothing
+ *_puts - prinsts input
+ *@str: Character string
+ *Return: void
  */
+
 void _puts(char *str)
 {
 	int i = 0;
@@ -44,11 +43,9 @@ void _puts(char *str)
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _putchar -prints char to STDOUT
+ * @c: character c
+ * Return:  1
  */
 int _putchar(char c)
 {

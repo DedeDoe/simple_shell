@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 /**
- * clear_info - initializes info_t struct
- * @info: struct address
+ * clear_info - pointer info initializes
+ * @info: info_t pointer info
+ * Return: no return
  */
 void clear_info(info_t *info)
 {
@@ -14,9 +15,10 @@ void clear_info(info_t *info)
 }
 
 /**
- * set_info - initializes info_t struct
- * @info: struct address
- * @av: argument vector
+ * set_info - sets info_t pointer
+ * @info: info pointer
+ * @av: pointer to a pointer argument value
+ * Return: no return
  */
 void set_info(info_t *info, char **av)
 {
@@ -49,9 +51,10 @@ void set_info(info_t *info, char **av)
 }
 
 /**
- * free_info - frees info_t struct fields
- * @info: struct address
- * @all: true if freeing all fields
+ * free_info - frees fields
+ * @info: info_t
+ * @all: int all
+ * Return: no return
  */
 void free_info(info_t *info, int all)
 {

@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * _myenv - Print the current environment variables.
- * @info: Pointer to the info_t struct holding argument information.
- * Return: Always 0.
+ * _myenv- prints environment variables
+ * @info: info_t info
+ * Return: 0
  */
 int _myenv(info_t *info)
 {
@@ -13,10 +13,10 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - Get the value of an environment variable.
- * @info: Pointer to the info_t struct holding argument information.
- * @name: Name of the environment variable.
- * Return: The value of the environment variable or NULL if not found.
+ * _getenv- value of env variable
+ * @info : info_t info
+ * @name : Constant character name
+ * Return: name of env variable
  */
 char *_getenv(info_t *info, const char *name)
 {
@@ -34,9 +34,9 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv - Initialize or modify an environment variable.
- * @info: Pointer to the info_t struct holding argument information.
- * Return: Always 0.
+ * _mysetenv - Function modifies or initializes env var
+ * @info: info_t info
+ * Return: 0
  */
 int _mysetenv(info_t *info)
 {
@@ -51,9 +51,9 @@ int _mysetenv(info_t *info)
 }
 
 /**
- * _myunsetenv - Remove an environment variable.
- * @info: Pointer to the info_t struct holding argument information.
- * Return: Always 0.
+ * _myunsetenv - deletes an env var
+ * @info: info_t info
+ * Return: 0
  */
 int _myunsetenv(info_t *info)
 {
@@ -64,9 +64,9 @@ int _myunsetenv(info_t *info)
 		_eputs("Too few arguments.\n");
 		return (1);
 	}
-	
+
 	anto = 1;
-	while (anto <= info->argc) 
+	while (anto <= info->argc)
 	{
 		_unsetenv(info, info->argv[anto]);
 		anto++;
@@ -76,9 +76,9 @@ int _myunsetenv(info_t *info)
 }
 
 /**
- * populate_env_list - Populate the environment linked list.
- * @info: Pointer to the info_t struct holding argument information.
- * Return: Always 0.
+ * populate_env_list - funtion populates the env list.
+ * @info: info_t info
+ * Return: 0
  */
 int populate_env_list(info_t *info)
 {

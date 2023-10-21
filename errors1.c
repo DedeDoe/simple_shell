@@ -1,18 +1,18 @@
 #include "shell.h"
 
 /**
- * _erratoi - converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
- *       -1 on error
+ * _erratoi - change string to int
+ * @s: character pointer s
+ * Return: 0
  */
+
 int _erratoi(char *s)
 {
 	int i = 0;
 	unsigned long int result = 0;
 
 	if (*s == '+')
-		s++;  
+		s++;
 	for (;  s[i] != '\0'; i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -29,11 +29,10 @@ int _erratoi(char *s)
 }
 
 /**
- * print_error - prints an error message
- * @info: the parameter & return info struct
- * @estr: string containing specified error type
- * Return: 0 if no numbers in string, converted number otherwise
- *        -1 on error
+ * print_error - prints error
+ * @info: info_t info
+ * @estr: character pointer estr
+ * Return: 0
  */
 void print_error(info_t *info, char *estr)
 {
@@ -47,11 +46,10 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * print_d - function prints a decimal (integer) number (base 10)
- * @input: the input
- * @fd: the filedescriptor to write to
- *
- * Return: number of characters printed
+ * print_d - function prints base 10
+ * @input: int input
+ * @fd: int fd
+ * Return: total of printed numbers
  */
 int print_d(int input, int fd)
 {
@@ -87,16 +85,15 @@ int print_d(int input, int fd)
 }
 
 /**
- * convert_number - converter function, a clone of itoa
- * @num: number
- * @base: base
- * @flags: argument flags
- *
- * Return: string
+ * convert_number - function clone of itoa
+ * @num: long int num
+ * @base: int base
+ * @flags: int flags
+ * Return: ptr
  */
 char *convert_number(long int num, int base, int flags)
 {
-	
+
 	char sign = 0;
 	char *ptr;
 	static char *array;
@@ -124,10 +121,9 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - function replaces first instance of '#' with '\0'
- * @buf: address of the string to modify
- *
- * Return: Always 0;
+ * remove_comments - function skips #
+ * @buf: character pointer buf
+ * Return: 0
  */
 void remove_comments(char *buf)
 {

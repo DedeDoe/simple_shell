@@ -1,12 +1,11 @@
 #include "shell.h"
 
 /**
- * is_chain - test if current char in buffer is a chain delimeter
- * @info: the parameter struct
- * @buf: the char buffer
- * @p: address of current position in buf
- *
- * Return: 1 if chain delimeter, 0 otherwise
+ * is_chain - check if char in buffer is a chain delimeter
+ * @info: info_t
+ * @buf: characer pointer buf
+ * @p: size t pointer p
+ * Return: 1
  */
 int is_chain(info_t *info, char *buf, size_t *p)
 {
@@ -24,9 +23,9 @@ int is_chain(info_t *info, char *buf, size_t *p)
 		jago++;
 		info->cmd_buf_type = CMD_AND;
 	}
-	else if (buf[jago] == ';') /* found end of this command */
+	else if (buf[jago] == ';')
 	{
-		buf[jago] = 0; /* replace semicolon with null */
+		buf[jago] = 0;
 		info->cmd_buf_type = CMD_CHAIN;
 	}
 	else
@@ -37,11 +36,10 @@ int is_chain(info_t *info, char *buf, size_t *p)
 
 
 /**
- * replace_string - replaces string
- * @old: address of old string
- * @new: new string
- *
- * Return: 1 if replaced, 0 otherwise
+ * replace_string - replaces
+ * @old: pointer to a pointer
+ * @new: pointer to new
+ * Return: 1
  */
 int replace_string(char **old, char *new)
 {
@@ -51,10 +49,9 @@ int replace_string(char **old, char *new)
 }
 
 /**
- * replace_alias - replaces an aliases in the tokenized string
- * @info: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
+ * replace_alias - replaces aliases
+ * @info: info t
+ * Return: 1
  */
 int replace_alias(info_t *info)
 {

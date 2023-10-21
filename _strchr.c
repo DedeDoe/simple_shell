@@ -2,11 +2,12 @@
 #include <stdio.h>
 
 /**
- **_strchr - locates a character in a string
- *@s: the string to be parsed
- *@c: the character to look for
- *Return: (s) a pointer to the memory area s
+ * _strchr - locates character
+ * @s: character pointer s
+ *@c: character c
+ *Return: s
  */
+
 char *_strchr(char *s, char c)
 {
 	do {

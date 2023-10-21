@@ -2,20 +2,21 @@
 #include <stdio.h>
 
 /**
- *_eputs - prints an input string
- * @str: the string to be printed
+ *_eputs - function prints input string
+ * @str: character pointer
  *
- * Return: Nothing
+ * Return: PRINT NOTHING
  */
 void _eputs(char *str)
 {
 	int aba;
-	aba= 0;
+
+	aba = 0;
 
 	if (!str)
 		return;
 
-	for (; str[aba] != '\0'; aba++) 
+	for (; str[aba] != '\0'; aba++)
 	{
 		_eputchar(str[aba]);
 	}
@@ -23,11 +24,9 @@ void _eputs(char *str)
 }
 
 /**
- * _eputchar - writes the character c to stderr
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _eputchar - copies character c to stderr
+ * @c: character c
+ * Return:  1
  */
 int _eputchar(char c)
 {
@@ -45,19 +44,17 @@ int _eputchar(char c)
 }
 
 /**
- * _putfd - writes the character c to given fd
- * @c: The character to print
- * @fd: The filedescriptor to write to
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _putfd - inputs c to specified filedescriptor
+ * @c: character c
+ * @fd: int fd
+ * Return: 1
  */
 int _putfd(char c, int fd)
 {
-	
+
 	static char buf[WRITE_BUF_SIZE];
 	static int i;
-	
+
 	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
 		write(fd, buf, i);
@@ -69,17 +66,16 @@ int _putfd(char c, int fd)
 }
 
 /**
- *_putsfd - prints an input string
- * @str: the string to be printed
- * @fd: the filedescriptor to write to
- *
- * Return: the number of chars put
+ *_putsfd - writes an input
+ * @str: character pointer str
+ * @fd: int fd
+ * Return:  number of chars
  */
 int _putsfd(char *str, int fd)
 {
 	int i;
-	
-	i= 0;
+
+	i = 0;
 	if (str == NULL)
 		return (0);
 	while (*str)

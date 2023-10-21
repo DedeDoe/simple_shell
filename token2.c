@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * **strtow2 - splits a string into words
- * @str: the input string
- * @d: the delimeter
- * Return: a pointer to an array of strings, or NULL on failure
+ * strtow2 - splits a string
+ * @str: cahracter pointer str
+ * @d: character delimiter d
+ * Return: s
  */
 char **strtow2(char *str, char d)
 {

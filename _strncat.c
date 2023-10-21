@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
- **_strncat - concatenates two strings
- *@dest: the first string
- *@src: the second string
- *@n: the amount of bytes to be maximally used
- *Return: the concatenated string
+ *_strncat- puts 2 two strings together
+ *@dest: character dest
+ *@src: character source
+ *@n: int n
+ *Return: s
  */
 char *_strncat(char *dest, char *src, int n)
 {

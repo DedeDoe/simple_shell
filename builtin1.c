@@ -1,10 +1,9 @@
 #include "shell.h"
 
 /**
- * _myhistory - shows history list, a cmd per line, along with line numbers.
- *
- * @info: Pointer to the info_t structure holding argument information.
- * Return: Always returns 0.
+ * _myhistory- This functions shows history
+ * @info: info_t info
+ * Return: 0
  */
 int _myhistory(info_t *info)
 {
@@ -13,11 +12,10 @@ int _myhistory(info_t *info)
 }
 
 /**
- * unset_alias - Sets an alias to a string.
- * @info: Parameter structure.
- * @str: The string alias.
- *
- * Return: Always 0 on success, 1 on error.
+ * unset_alias - This function gives an alias name to a string
+ * @info: info_t
+ * @str: Character pointer str
+ * Return: 0
  */
 int unset_alias(info_t *info, char *str)
 {
@@ -36,11 +34,10 @@ int unset_alias(info_t *info, char *str)
 }
 
 /**
- * set_alias - Sets an alias to a string.
- * @info: Parameter structure.
- * @str: The string alias.
- *
- * Return: Always 0 on success, 1 on error.
+ * set_alias- String alias
+ * @info: info_t info
+ * @str: Character pointer str
+ * Return: 1
  */
 int set_alias(info_t *info, char *str)
 {
@@ -57,10 +54,9 @@ int set_alias(info_t *info, char *str)
 }
 
 /**
- * print_alias - Prints an alias string.
- * @node: The alias node.
- *
- * Return: Always 0 on success, 1 on error.
+ * print_alias- Function prints alias
+ * @node: list_t pointer node
+ * Return: 0
  */
 int print_alias(list_t *node)
 {
@@ -80,10 +76,9 @@ int print_alias(list_t *node)
 }
 
 /**
- * _myalias - Mimics the alias builtin (man alias).
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0.
+ * _myalias - Similar alias
+ * @info : info_t info
+ * Return: 0
  */
 int _myalias(info_t *info)
 {

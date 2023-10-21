@@ -1,13 +1,14 @@
 #include "shell.h"
 
 /**
- * ffree - frees a string of strings
- * @pp: string of strings
+ * ffree- This function frees a string of strings
+ * @pp: character pp
+ * Return: aba
  */
 void ffree(char **pp)
 {
 	char **aba;
-       
+
 	aba = pp;
 	if (!pp)
 		return;

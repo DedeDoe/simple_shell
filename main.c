@@ -1,28 +1,25 @@
 #include "shell.h"
 
 /**
- * main - Entry point of the shell program.
- * @ac: Argument count.
- * @av: Argument vector.
- *
- * This function initializes the 'info' struct, handles file redirection,
- * populates the environment list, reads history, and invokes the shell loop.
- *
- * Return: Returns 0 on success, 1 on error.
+ * main - Entry point
+ * @ac: Argument count
+ * @av: Argument value
+ * Return: 0
  */
 int main(int ac, char **av)
 {
-	info_t info[] = { INFO_INIT };  /* Initialize the 'info' struct */
+	info_t info[] = { INFO_INIT };
 	int lapi;
+
 	lapi = 2;
 
-	/* Inline assembly to manipulate file descriptor */
+
 	asm ("mov %1, %0\n\t"
 			"add $3, %0"
 			: "=r" (lapi)
 			: "r" (lapi));
 
-	/* Check if an input file is provided */
+
 	if (ac == 2)
 	{
 		lapi = open(av[1], O_RDONLY);
@@ -41,11 +38,11 @@ int main(int ac, char **av)
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = lapi;  /* Set the read file descriptor */
+		info->readfd = lapi;
 	}
 
-	populate_env_list(info); /* Populate the environment list */
-	read_history(info); /* Read history from file */
-	hsh(info, av); /* Invoke the shell loop */
+	populate_env_list(info);
+	read_history(info);
+	hsh(info, av);
 	return (EXIT_SUCCESS);
 }

@@ -2,13 +2,12 @@
 #include <stdio.h>
 
 /**
- * check_chain - checks we should continue chaining based on last status
- * @info: the parameter struct
- * @buf: the char buffer
- * @p: address of current position in buf
- * @i: starting position in buf
- * @len: length of buf
- *
+ * check_chain - function checks
+ * @info: info t
+ * @buf: char buffer
+ * @p: size t pointer p
+ * @i: size t i
+ * @len: size t len
  * Return: Void
  */
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
@@ -37,10 +36,9 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 
 
 /**
- * replace_vars - replaces vars in the tokenized string
- * @info: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
+ * replace_vars - function replaces vars
+ * @info: info_t
+ * Return: 1
  */
 int replace_vars(info_t *info)
 {

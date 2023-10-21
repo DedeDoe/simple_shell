@@ -2,15 +2,14 @@
 #include <stdio.h>
 
 /**
- * list_to_strings - returns an array of strings of the list->str
- * @head: pointer to first node
- *
- * Return: array of strings
+ * list_to_strings - ret string array
+ * @head: list_t pointer
+ * Return: string array
  */
 char **list_to_strings(list_t *head)
 {
 	char **strs;
-        char *str;
+	char *str;
 	list_t *node = head;
 	unsigned int i = list_len(head), j;
 
@@ -39,12 +38,11 @@ char **list_to_strings(list_t *head)
 
 
 /**
- * node_starts_with - returns node whose string starts with prefix
- * @node: pointer to list head
- * @prefix: string to match
+ * node_starts_with - ret node of strings that start with a prefix
+ * @node: list_t  pointer node
+ * @prefix: characer pointer prefix
  * @c: the next character after prefix to match
- *
- * Return: match node or null
+ * Return: NULL
  */
 list_t *node_starts_with(list_t *node, char *prefix, char c)
 {

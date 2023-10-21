@@ -2,10 +2,9 @@
 #include <stdio.h>
 
 /**
- * interactive - Check if the shell is in interactive mode.
- * @info: Pointer to the info_t struct holding argument information.
- *
- * Return: 1 if the shell is in interactive mode, 0 otherwise.
+ * interactive- Makes shll interactive
+ * @info: info_t info
+ * Return: 1
  */
 int interactive(info_t *info)
 {
@@ -13,16 +12,16 @@ int interactive(info_t *info)
 }
 
 /**
- * is_delim - Check if a character is a delimiter.
- * @c: The character to check.
- * @delim: The delimiter string.
- * Return: 1 if the character is a delimiter, 0 otherwise.
+ * is_delim- Function checks for delimiters
+ * @c: Character c
+ * @delim: Character delim
+ * Return: 1
  */
 int is_delim(char c, char *delim)
 {
-	for (; *delim; delim++) 
+	for (; *delim; delim++)
 	{
- 		if (*delim == c) 
+		if (*delim == c)
 		{
 			return (1);
 		}
@@ -32,9 +31,9 @@ int is_delim(char c, char *delim)
 }
 
 /**
- * _isalpha - Check if a character is alphabetic.
- * @c: The character to check.
- * Return: 1 if the character is alphabetic, 0 otherwise.
+ * _isalpha- This function checks for alphabets
+ * @c: Int c
+ * Return: 1
  */
 int _isalpha(int c)
 {
@@ -42,9 +41,9 @@ int _isalpha(int c)
 }
 
 /**
- * _atoi - Convert a string to an integer.
- * @s: The string to be converted.
- * Return: 0 if no numbers in the string, converted number otherwise.
+ * _atoi - This function changes alphabets to integers
+ * @s: Character pointer s
+ * Return: 0
  */
 int _atoi(char *s)
 {

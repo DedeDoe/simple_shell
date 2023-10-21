@@ -1,9 +1,8 @@
 #include "shell.h"
 
 /**
- * free_list - frees all nodes of a list
- * @head_ptr: address of pointer to head node
- *
+ * free_list - frees a list's nodes
+ * @head_ptr: pointer to a pointer head
  * Return: void
  */
 void free_list(list_t **head_ptr)
@@ -17,10 +16,10 @@ void free_list(list_t **head_ptr)
 
 	for (; node;)
 	{
-    		next_node = node->next;
-    		free(node->str);
-    		free(node);
-    		node = next_node;
+		next_node = node->next;
+		free(node->str);
+		free(node);
+		node = next_node;
 	}
 
 	*head_ptr = NULL;
@@ -28,12 +27,11 @@ void free_list(list_t **head_ptr)
 
 
 /**
- * add_node - adds a node to the start of the list
- * @head: address of pointer to head node
- * @str: str field of node
- * @num: node index used by history
- *
- * Return: size of list
+ * add_node - puts node at the start of the list
+ * @head: list_t pointer to  a pointer head
+ * @str:character str
+ * @num: int num
+ * Return: size
  */
 list_t *add_node(list_t **head, char *str, int num)
 {
